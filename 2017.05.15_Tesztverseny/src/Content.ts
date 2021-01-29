@@ -1,11 +1,10 @@
 ﻿import fs from "fs";
 import http from "http";
-import { ParsedUrlQuery } from "querystring";
 import url from "url";
 import Megoldás from "./megoldas";
 
 export default class Content {
-    public content(req: http.IncomingMessage, res: http.ServerResponse): void {
+    public static content(req: http.IncomingMessage, res: http.ServerResponse): void {
         // req: http.IncomingMessage -> Bejövő kérés (request), pl.: paraméterek
         // res: http.ServerResponse -> Webszerver válasza (response) az összerakott weboldal
 
@@ -25,16 +24,17 @@ export default class Content {
         res.write("<p>1. feladat: Az adatok beolvasása</p>");
 
         // Az URL-ben átadott paraméterek lekérdezése:
-        const query: ParsedUrlQuery = url.parse(req.url as string, true).query;
+        const params = new url.URL(req.url as string, `http://${req.headers.host}/`).searchParams;
         // http://localhost:8080
         // Ha nincs vazon paraméter, akkor beállítja az alapértelmezett (mintán látható) értéket
         // http://localhost:8080/?vazon=JO001&sorszam=8
         // Ha van vazon paraméter, akkor kiolvassa és eltárolja az értékét
         // query.vazon as string -> típuskényszerítés C# (byte)hónapSorszáma
-        const vazon: string = query.vazon === undefined ? "AB123" : (query.vazon as string);
+        const vazon: string = params.has("vazon") ? (params.get("vazon") as string) : "AB123";
         // Hasonlóan jár el a sorszam paraméter esetén is:
-        let sorszam: string = query.sorszam === undefined ? "10" : (query.sorszam as string);
+        // let sorszam: string = query.sorszam === undefined ? "10" : (query.sorszam as string);
         // query.sorszam as string -> típuskényszerítés, mivel lehetne a paraméter string[]-is,
+        let sorszam: string = params.has("sorszam") ? (params.get("sorszam") as string) : "10";
         // azaz több értéket is átadhatna, de itt biztosan csak egy érték lesz
 
         const megoldások: Megoldás[] = []; // Versenyző osztálypéldányokat tároló vektor
