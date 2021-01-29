@@ -1,4 +1,4 @@
-import Segéd from "./seged";
+import Segéd from "./Segéd";
 
 /** Egy hiányzó tanulót leíró osztály */
 export default class Hiányzó {
