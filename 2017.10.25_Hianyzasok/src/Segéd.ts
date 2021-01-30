@@ -1,5 +1,5 @@
 export default class Segéd {
-    // 4. feladat:
+    // 4. feladat: Mgadott algoritmus kódolása
     /** Megadja a nap nevét
      * @param  {number} honap - A hónap sorszáma
      * @param  {number} nap - A nap sorszáma

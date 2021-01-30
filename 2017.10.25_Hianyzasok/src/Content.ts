@@ -46,7 +46,7 @@ export default class Content {
 
         let sNapSsz = `A nap sorszáma = ${nap} --> 1`;
         sNapSsz += "<input type='range' name='nap' min='1' max='31' step='1' ";
-        sNapSsz += `value='${nap}' style='width: 400px' onChange='this.form.submit();'>31\n`;
+        sNapSsz += `value='${nap}' style='width: 500px' onChange='this.form.submit();'>31\n`;
         res.write(sNapSsz);
         res.write(`Azon a napon ${Segéd.hetNapja(parseInt(honap, 10), parseInt(nap, 10))} volt.\n`);
 

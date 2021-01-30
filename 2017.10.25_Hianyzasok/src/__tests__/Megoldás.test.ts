@@ -7,15 +7,23 @@ describe("Megoldás osztály unit tesztek", () => {
         expect(instance).toBeInstanceOf(Megoldás);
     });
 
-    it("Bejegyzések számaSéta hossza", async () => {
+    it("Bejegyzések száma", async () => {
         expect(instance.bejegyzésekSzáma).toBe(139);
     });
 
-    it("Össz igazolt", async () => {
+    it("Összs igazolt", async () => {
         expect(instance.összIgazolt).toBe(788);
     });
 
-    it("Össz igazolatlan", async () => {
+    it("Összes igazolatlan", async () => {
         expect(instance.összIgazolatlan).toBe(18);
+    });
+
+    it("Megszámol hiányzás", async () => {
+        expect(instance.megszámolHiányzások("szerda", "3")).toBe(49);
+    });
+
+    it("Legtöbbet hiányzó tanuló(k)", async () => {
+        expect(instance.legtöbbetHiányzóTanulók).toStrictEqual(["Kivi Adrienn", "Jujuba Ibolya"]);
     });
 });

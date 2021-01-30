@@ -38,17 +38,17 @@ export default class Hiányzó {
     }
 
     /** Igazolt hiányzások száma */
-    get igazoltDb(): number {
+    public get igazoltDb(): number {
         return this.megszámol("X");
     }
 
     /** Igazolatlan hiányzások száma */
-    get igazolatlanDb(): number {
+    public get igazolatlanDb(): number {
         return this.megszámol("I");
     }
 
     /** Hiányzások száma */
-    get hianyzasDb(): number {
+    public get hianyzasDb(): number {
         return this.igazoltDb + this.igazolatlanDb;
     }
 
