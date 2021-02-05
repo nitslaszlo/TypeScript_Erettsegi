@@ -24,31 +24,31 @@ export default class Content {
         // Kezd a kódolást innen -->
 
         // 1. feladat: Olvassa be és tárolja el az utasadat.txt fájl tartalmát!
-        const megold: Megoldás = new Megoldás("utasadat.txt");
+        const mo: Megoldás = new Megoldás("utasadat.txt");
 
         // 2. feladat: Adja meg, hogy hány utas szeretett volna felszállni a buszra!
-        res.write(`2. feladat\nA buszra ${megold.felszállókSzáma} utas akart felszállni....\n`);
+        res.write(`2. feladat\nA buszra ${mo.felszállókSzáma} utas akart felszállni....\n`);
 
         // 3. feladat: A közlekedési társaság szeretné, ha a járművőn csak az érvényes jeggyel vagy bérlettel rendelkezők utaznának.
         // Ezért a jegyeket és bérleteket a buszvezető a felszálláskor ellenőrzi.
         // (A bérlet  még  érvényes  a  lejárat  napján.)
         // Adja  meg,  hogy  hány  esetben  kellett a buszvezetőnek elutasítania az utas felszállását,
         // mert lejárt a bérlete vagy már nem volt jegye!
-        res.write(`3. feladat\nA buszra ${megold.érvénytelenFelszállás} utas nem szállhatott fel.\n`);
+        res.write(`3. feladat\nA buszra ${mo.érvénytelenFelszállás} utas nem szállhatott fel.\n`);
 
         // 4. feladat: Adja meg, hogy melyik megállóban próbált meg felszállni a legtöbb utas!
         // (Több azonos érték esetén a legkisebb sorszámút adja meg!)
         // Megolás Map-el:
-        res.write(`4. feladat (Map)\nA legtöbb utas (${megold.maxKeresMap.maxFelszálló} fő) a ${megold.maxKeresMap.maxElsőMegálló}. megállóban próbált felszállni.\n`);
+        res.write(`4. feladat (Map)\nA legtöbb utas (${mo.maxKeresMap.maxFelszálló} fő) a ${mo.maxKeresMap.maxElsőMegálló}. megállóban próbált felszállni.\n`);
 
         // 4. feladat: Altenatív megoldás egyszerű vektorral
-        res.write(`4. feladat (Array)\nA legtöbb utas (${megold.maxKeresArray.maxFelszálló} fő) a ${megold.maxKeresArray.maxElsőMegálló}. megállóban próbált felszállni.\n`);
+        res.write(`4. feladat (Array)\nA legtöbb utas (${mo.maxKeresArray.maxFelszálló} fő) a ${mo.maxKeresArray.maxElsőMegálló}. megállóban próbált felszállni.\n`);
 
         // 5. feladat: A közlekedési társaságnak kimutatást kell készítenie, hogy hányszor utaztak valamilyen kedvezménnyel a járművön.
         // Határozza meg, hogy hány kedvezményes és hány ingyenes utazó szállt fel a buszra!
         // (Csak az érvényes bérlettel rendelkező szállhatott fel a buszra!)
-        res.write(`5. feladat\nIngyenesen utazók száma: ${megold.ingyenesenUtazók} fő\n`);
-        res.write(`A kedvezményesen utazók száma: ${megold.kedvezményesenUtazók} fő\n`);
+        res.write(`5. feladat\nIngyenesen utazók száma: ${mo.ingyenesenUtazók} fő\n`);
+        res.write(`A kedvezményesen utazók száma: ${mo.kedvezményesenUtazók} fő\n`);
 
         // 7. feladat: A közlekedési társaság azoknak az utasoknak, akiknek még érvényes, de 3 napon belül lejár a bérlete,
         // figyelmeztetést szeretne küldeni e-mailben.
@@ -56,7 +56,7 @@ export default class Content {
         // ha 2019. február 9. az érvényessége, akkor még nem kap levelet.)
         // Válogassa ki és írja a figyelmeztetes.txt  állományba  ezen  utasok  kártyaazonosítóját  és  a  bérlet érvényességi idejét
         // (éééé-hh-nn formátumban) szóközzel elválasztva!
-        megold.figyelmeztetéseketÁllománybaÍr("figyelmeztetes.txt");
+        mo.figyelmeztetéseketÁllománybaÍr("figyelmeztetes.txt");
 
         // Nem a feladat (megoldás) része :
         res.write("\n\n<u>GitHub repository:</u> ");

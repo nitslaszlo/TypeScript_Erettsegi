@@ -47,20 +47,18 @@
         "verbose": true,
         "testEnvironment": "node",
         "transform": {
-            "^.+\\.tsx?$": "ts-jest"
+            "^.+\\.ts$": "ts-jest"
         },
-        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|js)$",
         "moduleFileExtensions": [
             "ts",
-            "tsx",
             "js",
-            "jsx",
             "json"
         ],
-        "globals": {
-            "ts-jest": {
-                "diagnostics": false
-            }
-        }
+        "coverageDirectory": "coverage",
+        "collectCoverageFrom": [
+            "src/**/*.{ts,js}",
+            "!src/**/*.d.ts"
+        ]
     }
 }

@@ -1,5 +1,6 @@
 import Felszállás from "../Felszállás";
 import FelszállásBérlet from "../FelszállásBérlet";
+import Segéd from "../Segéd";
 
 describe("FelszállásBérlet osztály unit tesztek", () => {
     const instance: Felszállás = new FelszállásBérlet("0 20190326-0700 4170861 NYB 20190404");
@@ -57,7 +58,7 @@ describe("FelszállásBérlet osztály unit tesztek", () => {
     });
 
     it("Napok különbsége statikus metódusok összehasonlítása", async () => {
-        expect(Felszállás.napokszama(2019, 3, 26, 2019, 4, 4)).toBe(Felszállás.napokszama2(new Date("2019-03-26"), new Date("2019-04-04")));
-        expect(Felszállás.napokszama(1188, 1, 1, 2020, 6, 6)).toBe(Felszállás.napokszama2(new Date("1188-01-01"), new Date("2020-06-06")));
+        expect(Segéd.napokszama(2019, 3, 26, 2019, 4, 4)).toBe(Segéd.napokszama2(new Date("2019-03-26"), new Date("2019-04-04")));
+        expect(Segéd.napokszama(1188, 1, 1, 2020, 6, 6)).toBe(Segéd.napokszama2(new Date("1188-01-01"), new Date("2020-06-06")));
     });
 });

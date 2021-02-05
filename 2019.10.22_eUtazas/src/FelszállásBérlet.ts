@@ -1,4 +1,5 @@
 import Felszállás from "./Felszállás";
+import Segéd from "./Segéd";
 
 export default class FelszállásBérlet extends Felszállás {
     private _típus: string;
@@ -11,7 +12,7 @@ export default class FelszállásBérlet extends Felszállás {
     }
 
     public get lejárHáromNap(): boolean {
-        return this.érvényesFelszállás && Felszállás.napokszama2(this._idő, this._érvényes) <= 3;
+        return this.érvényesFelszállás && Segéd.napokszama2(this._idő, this._érvényes) <= 3;
     }
 
     public get kedvezményesUtazás(): boolean {
