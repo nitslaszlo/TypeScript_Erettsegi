@@ -109,8 +109,8 @@ export default class Megoldás {
         });
         let ki: string = "";
         for (let kerület = 1; kerület <= 8; kerület++) {
-            ki += `${kerület}.kerület: ${stat.get(kerület)?.nev} ${stat.get(kerület)?.pártJel2}\n`;
+            ki += `${kerület}.kerület: ${stat.get(kerület)?.nev} ${stat.get(kerület)?.pártJel2}\r\n`;
         }
-        fs.writeFileSync(állományneve, ki);
+        fs.writeFileSync(állományneve, ki.trimEnd());
     }
 }

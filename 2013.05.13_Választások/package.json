@@ -60,7 +60,9 @@
         "coverageDirectory": "coverage",
         "collectCoverageFrom": [
             "src/**/*.{ts,js}",
-            "!src/**/*.d.ts"
+            "!src/**/*.d.ts",
+            "!src/App.ts",
+            "!src/Content.ts"
         ]
     }
 }
