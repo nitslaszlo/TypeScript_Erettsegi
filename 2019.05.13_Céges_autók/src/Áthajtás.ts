@@ -4,7 +4,19 @@ export default class Áthajtás {
     private _rendszám: string;
     private _azon: number;
     private _kmÁllás: number;
-    private _behajtás: number; // true -> be, false -> ki
+    private _behajtás: number;
+
+    public get ezKihajtás(): boolean {
+        return this._behajtás == -1;
+    }
+
+    public get rendszám(): string {
+        return this._rendszám;
+    }
+
+    public get nap(): number {
+        return this._nap;
+    }
 
     constructor(sor: string) {
         const m: string[] = sor.split(" ");
