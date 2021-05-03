@@ -6,14 +6,17 @@ export default class Áthajtás {
     private _kmÁllás: number;
     private _behajtás: number;
 
+    // 2. feladathoz:
     public get ezKihajtás(): boolean {
         return this._behajtás == -1;
     }
 
+    // 2. feladathoz:
     public get rendszám(): string {
         return this._rendszám;
     }
 
+    // 2. feladathoz:
     public get nap(): number {
         return this._nap;
     }

@@ -29,6 +29,10 @@ export default class Content {
 
         res.write(`2. feladat:\n${m.utolsóKihatás.nap}. nap rendszám: ${m.utolsóKihatás.rendszám}\n`);
 
+        let inputNap = parseInt(params.get("iNap") as string);
+        if (isNaN(inputNap)) inputNap = 4;
+        res.write(`3. feladat:\nNap: <input type='number' name='iNap' value=${inputNap} style='max-width:100px;' onChange='this.form.submit();'>\n`);
+
         // Tetszőleges html teg-ek és attribútumok beépítése:
         // res.write("<span style='color: blue;'><i>Színes és dőlt Hello World!'</i></span>\n");
 
