@@ -29,9 +29,18 @@ export default class Content {
 
         res.write(`2. feladat:\n${m.utolsóKihatás.nap}. nap rendszám: ${m.utolsóKihatás.rendszám}\n`);
 
-        let inputNap = parseInt(params.get("iNap") as string);
+        let inputNap: number = parseInt(params.get("iNap") as string);
         if (isNaN(inputNap)) inputNap = 4;
         res.write(`3. feladat:\nNap: <input type='number' name='iNap' value=${inputNap} style='max-width:100px;' onChange='this.form.submit();'>\n`);
+        res.write(`Forgalom a(z) ${inputNap}. napon:\n`);
+        res.write(m.forgalom(inputNap));
+
+        res.write(`4. feladat:\nA hónap végén ${m.kintMaradtAutókSzáma} autót nem hoztak vissza.\n`);
+
+        res.write("5. feladat:\n");
+        res.write(m.távolságStatisztika);
+
+        res.write(`6. feladat:\nLeghosszab út: ${m.maxTávÁthajtás.megtettTáv} km, személy: ${m.maxTávÁthajtás.azon}\n`);
 
         // Tetszőleges html teg-ek és attribútumok beépítése:
         // res.write("<span style='color: blue;'><i>Színes és dőlt Hello World!'</i></span>\n");
