@@ -8,10 +8,19 @@ export default class Áthajtás {
 
     // 6. feladathoz:
     // HF: írható-olvasható jellemző készítése
-    public kmÁllásElőző: number;
+    private _kmÁllásElőző: number;
+
+    // Példa: Csak írható jellemző:
+    public set kmÁllásElőző(value: number) {
+        if (value > this.kmÁllás) {
+            throw new Error("Az előző km állás nem lehet nagyobb az aktuálisnál!");
+        } else {
+            this._kmÁllásElőző = value;
+        }
+    }
 
     public get megtettTáv(): number {
-        return this.ezBehajtás ? this._kmÁllás - this.kmÁllásElőző : 0;
+        return this.ezBehajtás ? this._kmÁllás - this._kmÁllásElőző : 0;
     }
 
     // 6. feladathoz:
@@ -61,6 +70,6 @@ export default class Áthajtás {
         this._azon = parseInt(m[3]);
         this._kmÁllás = parseInt(m[4]);
         this._behajtás = m[5] == "1" ? 1 : -1;
-        this.kmÁllásElőző = 0;
+        this._kmÁllásElőző = 0;
     }
 }

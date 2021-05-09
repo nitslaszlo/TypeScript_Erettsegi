@@ -58,10 +58,28 @@ export default class Megoldás {
                 if (aktSor.length != 0) {
                     const aktÁthajtás = new Áthajtás(aktSor);
                     // HF2: Megoldás máshogy:
+
                     if (aktÁthajtás.ezBehajtás) {
-                        const előzőÁthajtások: Áthajtás[] = this._forgalom.filter(x => x.rendszám == aktÁthajtás.rendszám);
-                        const utolsóIndex: number = előzőÁthajtások.length - 1;
-                        aktÁthajtás.kmÁllásElőző = előzőÁthajtások[utolsóIndex].kmÁllás;
+                        // Megoldás egyszerűen:
+                        let előzőKm = 0;
+                        for (const e of this._forgalom) {
+                            if (e.rendszám == aktÁthajtás.rendszám) {
+                                előzőKm = e.kmÁllás;
+                            }
+                        }
+                        aktÁthajtás.kmÁllásElőző = előzőKm;
+
+                        // Megoldás Map-el:
+                        // const stat: Map<string, number> = new Map<string, number>();
+                        // for (const e of this._forgalom) {
+                        //     stat.set(e.rendszám, e.kmÁllás);
+                        // }
+                        // aktÁthajtás.kmÁllásElőző = stat.get(aktÁthajtás.rendszám) as number;
+
+                        // Megoldás filter-el:
+                        // const előzőÁthajtások: Áthajtás[] = this._forgalom.filter(x => x.rendszám == aktÁthajtás.rendszám);
+                        // const utolsóIndex: number = előzőÁthajtások.length - 1;
+                        // aktÁthajtás.kmÁllásElőző = előzőÁthajtások[utolsóIndex].kmÁllás;
                     }
                     this._forgalom.push(aktÁthajtás);
                 }
