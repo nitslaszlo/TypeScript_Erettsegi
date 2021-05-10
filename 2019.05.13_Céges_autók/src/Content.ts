@@ -42,16 +42,13 @@ export default class Content {
 
         res.write(`6. feladat:\nLeghosszab út: ${m.maxTávÁthajtás.megtettTáv} km, személy: ${m.maxTávÁthajtás.azon}\n`);
 
-        // Tetszőleges html teg-ek és attribútumok beépítése:
-        // res.write("<span style='color: blue;'><i>Színes és dőlt Hello World!'</i></span>\n");
+        let rendszam: string = params.get("rendszam") as string;
+        if (!rendszam) rendszam = "CEG300";
 
-        // Próbáljuk számra konvertálni a "kor" paraméter (http://localhost:8080/?kor=16) értékét:
-        // let korod = parseInt(params.get("kor") as string);
-        // Ha nincs "kor" paraméter megadva, vagy nem lehet számra konvertálni értékét,
-        // akkor a "korod" változóba NaN érték kerül, ilyenkor legyen 18 év az értéke:
-        // if (isNaN(korod)) korod = 18;
-
-        // res.write(`Kérem a korod: <input type='number' name='kor' value=${korod} style='max-width:100px;' onChange='this.form.submit();'>\n`);
+        res.write("7. feladatg");
+        res.write(`Rendszám: <input type='text' name='rendszam' value=${rendszam} style='max-width:100px;' onChange='this.form.submit();'>\n`);
+        m.menetleveletKészít(rendszam);
+        res.write("Menetlevél kész.");
 
         // <---- Fejezd be a kódolást
 

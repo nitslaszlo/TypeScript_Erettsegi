@@ -95,4 +95,40 @@ export default class Megoldás {
         }
         return vissza;
     }
+
+    public menetleveletKészít(rendszám: string): void {
+        let aktSor: string = "";
+
+        // Megoldás string vektorral:
+        // const ki: string[] = [];
+        // for (const e of this._forgalom) {
+        //     if (e.rendszám == rendszám) {
+        //         if (e.ezKihajtás) {
+        //             aktSor += `${e.azon}\t${e.nap}. ${e.idő}\t${e.kmÁllás} km`;
+        //         } else {
+        //             aktSor += `\t${e.nap}. ${e.idő}\t${e.kmÁllás} km`;
+        //             ki.push(aktSor);
+        //             aktSor = "";
+        //         }
+        //     }
+        // }
+        // if (aktSor != "") ki.push(aktSor);
+        // fs.writeFileSync(`${rendszám}_menetlevel.txt`, ki.join("\r\n") + "\r\n");
+
+        // Megoldás string típusú változóval:
+        let ki: string = "";
+        for (const e of this._forgalom) {
+            if (e.rendszám == rendszám) {
+                if (e.ezKihajtás) {
+                    aktSor += `${e.azon}\t${e.nap}. ${e.idő}\t${e.kmÁllás} km`;
+                } else {
+                    aktSor += `\t${e.nap}. ${e.idő}\t${e.kmÁllás} km\r\n`;
+                    ki += aktSor;
+                    aktSor = "";
+                }
+            }
+        }
+        if (aktSor != "") ki += aktSor + "\r\n";
+        fs.writeFileSync(`${rendszám}_menetlevel.txt`, ki);
+    }
 }
